@@ -55,4 +55,8 @@ public class LoginWithPasswordPage extends BasePage {
     public String getErrorMessage() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ERROR_MESSAGE))).getText();
     }
+
+    public void clickAuthLogo(){
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(AUTH_LOGO))).click();
+    }
 }

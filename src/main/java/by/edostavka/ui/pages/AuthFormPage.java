@@ -12,7 +12,7 @@ public class AuthFormPage extends BasePage {
     private final String TITLE = "//h1[@class='wrapper_title__9r4Xa']";
     private final String INPUT_PHONE_NUMBER = "//input[@class='new-input-phone_input__XWAH5']";
     private final String BUTTON_GET_CODE = "//button[@class='btn btn_size_medium btn_colour_black login_button__zjbHA']";
-    private final String BUTTON_LOG_IN_WITH_PASSWORD = "//button[.//span[text()='Войти по паролю']]";
+    private final String BUTTON_LOG_IN_WITH_PASSWORD = "//button[contains(., 'Войти по паролю')]";
     private final String BUTTON_REGISTRATION = "//button[@class='btn btn_size_medium btn_colour_white login_button__zjbHA']";
     private final String AUTH_LOGO = "//a[@class='auth_logo__i9lsb']";
     private final String ERROR_MESSAGE_INCORRECT_NUMER = "//div[@class='new-input-phone_message__H_yAc']";
@@ -35,11 +35,11 @@ public class AuthFormPage extends BasePage {
     }
 
     public void clickButtonLogInWithPassword() {
-        driver.findElement(By.xpath(BUTTON_LOG_IN_WITH_PASSWORD)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(BUTTON_LOG_IN_WITH_PASSWORD))).click();
     }
 
     public void clickButtonRegistration() {
-        driver.findElement(By.xpath(BUTTON_REGISTRATION)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(BUTTON_REGISTRATION))).click();
     }
 
     public String getErrorMessageIncorrectNumber() {
@@ -50,6 +50,10 @@ public class AuthFormPage extends BasePage {
 
     public String getErrorMessageCheckCorrectMessage() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ERROR_MESSAGE_CHECK_CORRECT_NUMBER))).getText();
+    }
+
+    public void clickAuthLogo(){
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(AUTH_LOGO))).click();
     }
 
 }

@@ -1,5 +1,6 @@
 package by.edostavka.ui;
 
+import by.edostavka.data.Utils;
 import by.edostavka.ui.pages.AuthFormPage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,14 +32,14 @@ public class AuthFormTest extends BaseTest {
 
     @Test
     public void test2() {
-        authFormPage.setInputPhoneNumber("294564545");
+        authFormPage.setInputPhoneNumber(Utils.getPhoneNumber());
         authFormPage.clickButtonGetCode();
         Assertions.assertEquals("Пожалуйста, убедитесь, что правильно ввели телефон", authFormPage.getErrorMessageCheckCorrectMessage());
     }
 
 
     @Test
-    public void testSwitchToPasswordForm() {
+    public void test3() {
         Assertions.assertEquals("Вход", authFormPage.getTitleText());
 
     }

@@ -27,7 +27,8 @@ public class HomePage extends BasePage {
     }
 
     public void clickButtonAuth() {
-        driver.findElement(By.xpath(BUTTON_AUTH)).click();
+        WebElement buttonAuth = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(BUTTON_AUTH)));
+        buttonAuth.click();
     }
 
     public void getCopyRights() {
