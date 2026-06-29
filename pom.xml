@@ -129,7 +129,7 @@
                 <configuration>
                     <useModulePath>false</useModulePath>
                     <!-- Жесткий относительный путь, который сработает на любой ОС и JDK -->
-                    <argLine>-javaagent:${project.build.directory}/agent/aspectjweaver.jar</argLine>
+                    <argLine>-javaagent:"${project.build.directory}/agent/aspectjweaver.jar"</argLine>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
